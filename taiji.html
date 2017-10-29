@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: pink;
+        }
+        #taiji{
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 100%); 
+        }
+        
+        #taiji .lbox,#taiji .rbox{
+            float:left;
+            width:100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+            margin-top:50px;
+        } 
+        #taiji .rbox{
+            float:left;
+            background: black;
+        }
+        #taiji .lson,#taiji .rson{
+            height: 30px;
+            width: 30px;
+            background: #000;
+            margin:35px auto;
+            border-radius: 50%;
+        }
+        #taiji .rson{
+            background:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="taiji">
+        <div class="lbox">
+            <div class="lson"></div>
+        </div>
+        <div class="rbox">
+            <div class="rson"></div>
+        </div>
+    </div>
+</body>
+</html>

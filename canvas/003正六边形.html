@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         canvas { border: 1px solid black; }
+    </style>
+</head>
+<body  onload="draw();draw2();draw3();">
+            <canvas id="canvas" width="1500" height="600"></canvas>
+           
+    <script>
+        /*
+        beginPath() 新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+        closePath() 闭合路径之后图形绘制命令又重新指向到上下文中。
+        stroke()    通过线条来绘制图形轮廓。
+        fill()  通过填充路径的内容区域生成实心的图形。
+        */
+        function draw(){
+            var canvas = document.getElementById('canvas');
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                    //画正六边形   起始到终点  半径为40/根3   (20,0)(40,20/根3)(40,60/跟三)(20,80/跟三)(0,60/跟三)(0,20/跟三)
+                    ctx.beginPath();
+                    //将笔触移动到指定的坐标x以及y上。
+                    ctx.moveTo(0,20/Math.pow(3,1/2));
+                    ctx.lineTo(20,0);  
+                    ctx.lineTo(40,20/Math.pow(3,1/2));
+                    ctx.lineTo(40,60/Math.pow(3,1/2));
+                    ctx.lineTo(20,80/Math.pow(3,1/2));
+                    ctx.lineTo(0,60/Math.pow(3,1/2));
+                    ctx.lineTo(0,20/Math.pow(3,1/2));
+                    ctx.stroke();
+                }
+        }
+        // 10的平方   10*10  Math.pow(10,2)
+        // 9的开方    根号9   Math.pow(9,1/2);
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: pink;
+        }
+       
+        #taiji{
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 100%); 
+            position: relative;
+            animation-duration:3s;
+            animation-name:circlearount;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes circlearount{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+     
+        div#taiji::before{
+            content:'';
+            position: absolute;
+            height:  30px;
+            width: 30px;
+            border-radius: 50%;
+            background: #fff;
+            border:35px solid #000;
+            top:50px;
+            left:0;
+        }
+        div#taiji::after{
+            content:'';
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background: #000;
+            border:35px solid #fff;
+            top:50px;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="taiji">
+
+    </div>
+</body>
+</html>

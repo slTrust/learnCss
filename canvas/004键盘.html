@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         canvas { border: 1px solid black; }
+    </style>
+</head>
+<body>
+            <canvas id="canvas" width="1500" height="600"></canvas>
+    <script>
+       
+
+        function draw(x,y,width){
+            var halfW =width/2;
+            var arr=[];
+            //
+            var scale = Math.pow(3,1/2); //根3
+            arr.push([x+0,y+halfW/scale]);
+            arr.push([x+halfW,y+0]);
+            arr.push([x+2*halfW,y+halfW/scale]);
+            arr.push([x+2*halfW,y+3*halfW/scale]);
+            arr.push([x+halfW,y+4*halfW/scale]);
+            arr.push([x+0,y+3*halfW/scale]);
+            arr.push([x+0,y+halfW/scale]);
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                    //画正六边形   起始到终点  半径为40/根3   (0,20/跟三)(20,0)(40,20/根3)(40,60/跟三)(20,80/跟三)(0,60/跟三)
+                    ctx.beginPath();
+                    //将笔触移动到指定的坐标x以及y上。
+                    // ctx.moveTo(0,20/Math.pow(3,1/2));
+                    // ctx.lineTo(20,0);  
+                    // ctx.lineTo(40,20/Math.pow(3,1/2));
+                    // ctx.lineTo(40,60/Math.pow(3,1/2));
+                    // ctx.lineTo(20,80/Math.pow(3,1/2));
+                    // ctx.lineTo(0,60/Math.pow(3,1/2));
+                    // ctx.lineTo(0,20/Math.pow(3,1/2));
+                    ctx.moveTo(arr[0][0],arr[0][1])
+                    for(var i=1;i<arr.length;i++){
+                        ctx.lineTo(arr[i][0],arr[i][1])
+                    }
+                    ctx.stroke();
+                }
+        }
+
+       
+
+        var arr = [10,9,8];
+
+        var scale = Math.pow(3,1/2);
+        var width = 40;
+        var halfW = width/2;
+        var startX = 200;
+        var startY = 200;
+        //5行10列的蜂窝
+        for(var y=1;y<4;y++){
+            var offset = Math.pow(-1,y+2);
+            var offsetX = startX + y*halfW;
+            console.log(offsetX);
+            var offsetY = startY + 3*halfW/scale*y;
+            for(var i=0;i<arr[y-1];i++){
+                draw(offsetX+i*width,offsetY,width);
+                var canvas = document.getElementById('canvas');
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                    ctx.font = '20px serif';
+                    ctx.strokeText('a',offsetX+i*width+width/4 , offsetY+2*halfW/scale);
+                }
+            }
+        }
+
+
+        
+    </script>
+</body>
+</html>

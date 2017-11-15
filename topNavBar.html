@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;}
+        
+        .ifDropdown{
+            float:left;
+            position:relative;
+        }
+        .ifDropdown-toggle{
+            display: inline-block;
+            text-decoration: none;
+            font-size: 14px;
+            color:#333;
+            border:1px solid transparent;
+            padding:5px 10px;
+            line-height:20px;
+            box-sizing: border-box;
+        }
+        .ifDropdown-toggle:hover{
+            color:#000;
+            background:rgba(17, 211, 236, 0.3);
+        }
+        .ifDropdownList{
+            position:absolute;
+            top:107%;
+            left:0;
+            border:1px solid #ccc;
+            border-radius:4px;
+            display:none;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.44);
+            padding:5px;
+        }
+        .ifDropdownList>li{
+            font-size:14px; 
+            color:#999;
+            line-height:30px;
+            padding:1px 10px;
+            border-radius: 4px;
+
+        }
+        .ifDropdownList>li:hover{
+            background:#f2f2f2;
+            color:#0089e1;
+        }
+        .clearfix::after{
+            display:block;
+            content:'';
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ifDropdownBox clearfix">
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">运营功能</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">任务</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">操作</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li class="ifDropdown">
+                <a class="ifDropdown-toggle" toggle='0' href="#">牛群信息</a>
+                <ul class="ifDropdownList">
+                    <li>aaa</li>
+                    <li>bbb</li>
+                    <li>ccc</li>
+                </ul>
+            </li>
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">生产信息</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">牧场设置</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li class="ifDropdown">
+            <a class="ifDropdown-toggle" toggle='0' href="#">系统管理</a>
+            <ul class="ifDropdownList">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+    </ul>
+    <script src="./jquery-3.1.1.js"></script>
+    <script>
+        $('.ifDropdown .ifDropdown-toggle').on('click',function(){
+            var toggleState = $(this).attr('toggle');
+            var parent = $(this).parent();
+            $('.ifDropdown .ifDropdownList').hide();
+            $('.ifDropdown .ifDropdown-toggle').attr('toggle','0');
+            if(toggleState==0){
+                $(this).attr('toggle','1');
+                parent.find('.ifDropdownList').show();
+            }else{
+                $(this).attr('toggle','0');
+                parent.find('.ifDropdownList').hide();
+            }
+        })
+        $(document).on('click',function(ev){
+            var target = event.srcElement||ev.target;
+            var className = $(target).attr('class');
+            if(className!='ifDropdown-toggle'){
+                $('.ifDropdown .ifDropdownList').hide();
+                $('.ifDropdown .ifDropdown-toggle').attr('toggle','0');
+            }
+           
+        })
+    </script>
+</body>
+</html>

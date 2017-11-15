@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         canvas { border: 1px solid black; }
+    </style>
+</head>
+<body  onload="draw();draw2();draw3();">
+            <canvas id="tutorial" width="150" height="150"></canvas>
+
+            <canvas id="canvas" width="150" height="150"></canvas>
+            <canvas id="canvas3" width="150" height="150"></canvas>
+    <script>
+       function draw(){
+        var canvas = document.getElementById('tutorial');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+        }
+      }
+
+
+      function draw2() {
+        var canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+          var ctx = canvas.getContext("2d");
+          //填充颜色
+          ctx.fillStyle = "rgb(200,0,0)";
+          // 画实心矩形  fillRect(x, y, width, height)  strokeRect(x, y, width, height)  clearRect(x, y, width, height)
+          ctx.fillRect (10, 10, 60, 50);
+          //画实心矩形   填充rgba格式
+          ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+          ctx.fillRect (30, 30, 55, 50);
+          //空心矩形
+          ctx.fillStyle = "aqua";
+          ctx.strokeRect(90,10,30,30);
+
+          //清除 一个矩形区域让清除部分 完全透明
+          //ctx.clearRect(89,9,32,32);
+        }
+      }
+
+      function draw3() {
+        var canvas = document.getElementById('canvas3');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+          //先画最大的实心矩形
+          ctx.fillRect(25,25,100,100);
+          //在中间部分清空一个矩形区域
+          ctx.clearRect(45,45,60,60);
+          //画空心矩形
+          ctx.strokeRect(50,50,50,50);
+        }
+      }
+    </script>
+</body>
+</html>

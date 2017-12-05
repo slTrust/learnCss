@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 200px;
+            position: relative;
+            border:1px solid red;
+        }
+        #box::before, #box::after{
+            display:block;
+            content:'';
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+            height: 0;
+            width: 0;
+            border-radius: 50%;
+            background: #ddd;
+            animation: toBig 1s linear infinite  ;
+        }
+        #box::after{
+            animation-delay:.5s;
+        }
+        @keyframes toBig{
+            from{
+               width:0px;
+               height:0px;
+               opacity: 1;
+            }
+            to{
+                width:100px;
+                height:100px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes toBig2{
+            from{
+               width:0px;
+               height:0px;
+               opacity: 1;
+            }
+            to{
+                width:50px;
+                height:50px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+      
+    </div>
+</body>
+</html>
